@@ -12,7 +12,7 @@ app.get('/', (req, res) =>{
 
 const userRouter = require('./routes/user');
 const movieRouter = require('./routes/movie');
-г
+
 app.use('/user', userRouter);
 app.use('/movie', movieRouter);
 
