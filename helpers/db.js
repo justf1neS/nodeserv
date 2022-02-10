@@ -1,11 +1,8 @@
 const mariadb = require('mariadb');
 
-const root = 'root';
-const local = 'localhost';
-
 const pool = mariadb.createPool({
-    host: local,
-    user: root,
+    host: 'localhost',
+    user: 'root',
     password: 'hWQOa69pMW',
     database: 'qatest_db',
     connectionLimit: 5

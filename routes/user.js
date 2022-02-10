@@ -23,7 +23,7 @@ router.post('/register', async function(req,res) {
         const encryptedPassword = await bcrypt.hash(pass,10)
 
         const sqlQuery = 'INSERT INTO users (name, surname, pass, email) VALUES (?,?,?,?)';
-        const result = await pool.query(sqlQuery, [name, surname, email, encryptedPassword]);
+        const result = await pool.query(sqlQuery, [name, surname,encryptedPassword, email]);
 
         res.status(200).json({userId: result.insertId});
     } catch (error) {
