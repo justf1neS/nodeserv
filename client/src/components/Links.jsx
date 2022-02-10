@@ -14,14 +14,23 @@ const Item = styled.div.attrs({
   className: "collpase navbar-collapse",
 })``;
 
+const Button = styled.button.attrs({
+  className: "nav-link",
+})`
+  background-color: transparent;
+  border: 0;
+`;
+
 function Links() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const status = localStorage.getItem("isLoggedIn");
+  //   localStorage.setItem("isLoggedIn", true);
 
   useEffect(() => {
-    setIsLoggedIn(Boolean(status));
-  }, [status]);
+    console.log(Boolean(localStorage.getItem("isLoggedIn")));
+    setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
+  }, []);
+
   return (
     <React.Fragment>
       <Link to="/" className="navbar-brand">
@@ -29,17 +38,19 @@ function Links() {
       </Link>
       <Collapse>
         <List>
-          <Item>
-            <Link to="/register" className="nav-link">
-              Register
-            </Link>
-          </Item>
           {!isLoggedIn && (
-            <Item>
-              <Link to="/login" className="nav-link">
-                Login
-              </Link>
-            </Item>
+            <>
+              <Item>
+                <Link to="/register" className="nav-link">
+                  Register
+                </Link>
+              </Item>
+              <Item>
+                <Link to="/login" className="nav-link">
+                  Login
+                </Link>
+              </Item>
+            </>
           )}
 
           {isLoggedIn && (
@@ -57,9 +68,14 @@ function Links() {
               </Item>
 
               <Item>
-                <Link to="/" className="nav-link">
+                <Button
+                  onClick={() => {
+                    localStorage.setItem("isLoggedIn", false);
+                    window.location.replace("/login");
+                  }}
+                >
                   Log Out
-                </Link>
+                </Button>
               </Item>
             </>
           )}

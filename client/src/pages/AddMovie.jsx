@@ -73,7 +73,7 @@ class AddMovie extends Component {
   };
 
   handleUpdateMovie = async () => {
-    const { id, name, rating, time } = this.state;
+    const { name, rating, time } = this.state;
     const payload = { name, rating, time };
 
     await api

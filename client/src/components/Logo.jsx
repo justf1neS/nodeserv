@@ -25,6 +25,7 @@ class Logo extends Component {
         }}
         href="https://www.devit.com"
       >
+        {/* NO ALT attr */}
         <img src={logo} width="40" height="40" />
       </Wrapper>
     );

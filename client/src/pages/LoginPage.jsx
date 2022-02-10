@@ -17,10 +17,6 @@ const Label = styled.label`
   margin: 5px;
 `;
 
-const ReqBanner = styled.p`
-  margin: 16px 0 16px 5px;
-`;
-
 const InputText = styled.input.attrs({
   className: "form-control",
 })`
@@ -72,7 +68,7 @@ class LoginPage extends Component {
   };
 
   render() {
-    const { email, password, firstName, lastName } = this.state;
+    const { email, password } = this.state;
     return (
       <Wrapper>
         <Title>Login</Title>

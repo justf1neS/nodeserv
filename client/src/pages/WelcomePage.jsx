@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import api from "../api";
 
 import styled from "styled-components";
 
@@ -34,6 +33,7 @@ class WelcomePage extends Component {
 
   componentDidMount = () => {
     if (localStorage.getItem("isLoggedIn") === "true") {
+      console.log(Boolean(localStorage.getItem("isLoggedIn")));
       localStorage.setItem("isLoggedIn", false);
       window.location.reload();
     }
